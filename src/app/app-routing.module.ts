@@ -8,7 +8,8 @@ const routes: Routes = [
     path: 'bancos',
     loadChildren: () => import('./bancos/bancos.module').then(m => m.BancosModule)
   },
-  { path: 'agencia', loadChildren: () => import('./bancos/bancos.module').then(m => m.BancosModule) },
+  { path: 'agencias',
+  loadChildren: () => import('./agencias/agencias.module').then(m => m.AgenciasModule) },
   { path: 'login', loadChildren: () => import('./bancos/bancos.module').then(m => m.BancosModule) },
   { path: 'home', loadChildren: () => import('./bancos/bancos.module').then(m => m.BancosModule) },
 ];

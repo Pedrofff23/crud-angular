@@ -20,6 +20,26 @@
           <td mat-cell *matCellDef="let banco "> {{ banco.numero }} </td>
         </ng-container>
 
+        <!-- Name Column -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-mini-fab color="primary" class="icon-display" aria-label="Adicionar Banco">
+              <mat-icon (click)="onAdd()">add</mat-icon>
+            </button>
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let banco">
+            <button mat-icon-button color="primary" aria-label="Editar Banco">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="warn" aria-label="Remover Banco">
+              <mat-icon (click)="onDelete(banco)" >delete</mat-icon>
+            </button>
+          </mat-cell>
+
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
@@ -35,3 +55,11 @@
 
   </div>
 </mat-card>
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover esse curso?</p>
+    <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Nao</button>
+  </div>
+</ng-template>
